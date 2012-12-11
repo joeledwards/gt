@@ -1,7 +1,7 @@
 /*
- * gti - a git launcher
+ * gt - a git launcher
  *
- * Copyright 2012 by Richard Wossal <richard@r-wos.org>
+ * Copyright 2012 by Joel Edwards <joeledwards@gmail.com>
  *
  * Permission to use, copy, modify, distribute, and sell this software
  * and its documentation for any purpose is hereby granted without fee,
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
     SLEEP_DELAY = 1000000 / (TERM_WIDTH + GTI_SPEED);
     
     init_space();
-    for (i = -20; i < TERM_WIDTH; i++) {
+    for (i = TERM_WIDTH; i > -85; i--) {
         draw_car(i);
         usleep(SLEEP_DELAY);
         clear_car(i);
@@ -67,12 +67,12 @@ int term_width(void)
 
 void init_space(void)
 {
-    puts("\n\n\n\n\n\n"); /* 7 lines */
+    puts("\n\n\n\n\n\n\n\n\n\n"); /* 10 lines */
 }
 
 void move_to_top(void)
 {
-    printf("\033[7A");
+    printf("\033[10A");
 }
 
 void line_at(int start_x, const char *s)
@@ -90,25 +90,32 @@ void line_at(int start_x, const char *s)
 
 void draw_car(int x)
 {
-    move_to_top();
-    line_at(x, "   ,---------------.");
-    line_at(x, "  /  /``````|``````\\\\");
-    line_at(x, " /  /_______|_______\\\\________");
-    line_at(x, "|]      GTI |'       |        |]");
+    line_at(x, "                                       ______________");
+    line_at(x, "                                  _.-''         || \\ `-.");
+    line_at(x, "                             _.-''              ||   \\  `-._       -=====/");
+    line_at(x, "                   _____..-''.<(]_______________||_____\\    `-------/--/.");
+    line_at(x, "         _..---''''__      /  ``     ____________|__________.....________\\");
     if (x % 2) {
-    line_at(x, "=  .-:-.    |________|  .-:-.  =");
-    line_at(x, " `  -+-  --------------  -+-  '");
-    line_at(x, "   '-:-'                '-:-'  ");
+    line_at(x, "   _.-'''__.-.='_`_`-.\\---|---'''''''       ` `  |   __  /.-'_`_`-.\\      \\.");
+    line_at(x, " .' --''' .'/ /  |  \\ \\`. |    Pontiac GT       /   '='.'/ /\\ | /\\ \\`.  __.|");
+    line_at(x, " |--------|| |``-O-''| ||--\\-------------------/-------|| |''-O-``| ||''  /");
+    line_at(x, " '''----..| \\ \\/_ _\\/ / |______________________________| \\ \\ _|_ / / `--'\"");
+    line_at(x, "             `-.....-'                                    `-.....-'");
     } else {
-    line_at(x, "=  .:-:.    |________|  .:-:.  =");
-    line_at(x, " `   X   --------------   X   '");
-    line_at(x, "   ':-:'                ':-:'  ");
+    line_at(x, "   _.-'''__.-.='_`_`-.\\---|---'''''''       ` `  |   __  /.-'_`_`-.\\      \\.");
+    line_at(x, " .' --''' .'/ /\\   /\\ \\`. |   Pontiac GT        /   '='.'/ /  |  \\ \\`.  __.|");
+    line_at(x, " |--------|| |''-O-``| ||--\\-------------------/-------|| |``-O-''| ||''  /");
+    line_at(x, " '''----..| \\ \\ _|_ / / |______________________________| \\ \\/_ _\\/ / `--'\"");
+    line_at(x, "             `-.....-'                                    `-.....-'");
     }
 }
 
 void clear_car(int x)
 {
     move_to_top();
+    line_at(x, "  ");
+    line_at(x, "  ");
+    line_at(x, "  ");
     line_at(x, "  ");
     line_at(x, "  ");
     line_at(x, "  ");

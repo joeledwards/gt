@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-O2 -Wall -Wextra
 
-PROG=gti
+PROG=gt
 PREFIX=/usr/bin
 
 $(PROG): *.c
