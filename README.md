@@ -24,7 +24,10 @@ Try typing `git` really fast, on an unfamiliar keyboard.
 Author and License
 ------------------
 
-Copyright 2012 by Richard Wossal <richard@r-wos.org>
+gt  by Joel Edwards <joeledwards@gmail.com>
+
+based on:
+gti Copyright 2012 by Richard Wossal <richard@r-wos.org>
 
 Permission to use, copy, modify, distribute, and sell this software
 and its documentation for any purpose is hereby granted without fee,
